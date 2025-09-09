@@ -1,6 +1,6 @@
 import {  useEffect, useState } from 'react'
 import Login from './Components/Login.jsx'
-// import Register from './Components/Register'
+import Register from './Components/Register'
 // import Dashboard from './Components/Dashboard'  
 import { Route, Routes } from 'react-router-dom';
 import './App.css'
@@ -40,10 +40,10 @@ function App() {
         </div>      
     </nav>
     </nav>
-    <Login /> 
+    
     <Routes>
-      <Route path="/login" element={<Login />} />
-      {/* <Route path="/register" element={<Register />} /> */}
+      <Route path="/login" element={<Login token={token} setToken={setToken} userId={userId} setUserId={setUserId} />} />
+      <Route path="/register" element={<Register />} />
       {/* <Route path="/dashboard" element={<Dashboard token={token} userId={userId} />} />  */}
     </Routes>
      

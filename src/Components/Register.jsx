@@ -16,10 +16,12 @@ async function handleSubmit(e) {
       const response = await fetch(`http://localhost:3000/api/users/register`, {
         method: 'POST',
         headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({username: username, password: password })
       });
+
       const result = await response.json();
       console.log(result);
+      
     } catch (error) {
       console.error('Error:', error);
       alert('Login failed. Please try again.');
@@ -28,12 +30,17 @@ async function handleSubmit(e) {
       setToken(result.token);
       alert('Registration successful!');
       navigate('/login');
-    }
-
+    }};
+  
 
   return (
-    <div>
+
+    <>
+    
       <h2>Registration</h2>
+      <div className='register-container'>
+
+     {
       <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">Username:</label>
@@ -55,10 +62,12 @@ async function handleSubmit(e) {
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
-            </form>
-    </div>
+                <button type="submit">Register</button>
+            </form>}
+      </div>
+    </>
+  
   );
-} };  
+};  
 
 export default Register
