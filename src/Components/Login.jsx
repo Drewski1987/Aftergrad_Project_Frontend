@@ -12,7 +12,7 @@ function Login () {
     const [token, setToken] = useState(null);
     const navigate = useNavigate();
 
-    async function handleSubmit(e) {
+    async function handleLogin(e) {
         e.preventDefault();
 
         try {
@@ -39,7 +39,7 @@ function Login () {
         <>
         <div className="login-container">
             <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="username">Username:</label>
                     <input
